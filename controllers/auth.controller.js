@@ -35,11 +35,10 @@ export const Login = async (req, res) => {
             return res.redirect('/auth/login?error=email not found or password is not match')
         }
 
-        const token = jwt.sign({ _id: user._id, name: user.fullName, role: user.role },
-            process.env.JWT_SECRET, { expiresIn: '3d' })
+        const token = jwt.sign({ _id: user._id, name: user.fullName, role: user.role },'rahasia', { expiresIn: '3d' })
         res.cookie('jwt', token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === 'production' ? true : false
+            secure: true
         })
 
         switch (user.role) {

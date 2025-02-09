@@ -4,7 +4,7 @@ export const verifyToken = (req, res, next) => {
     const token = req.cookies.jwt 
     if (!token) res.redirect('/auth/login?error=Token tidak ada')
     
-    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+    jwt.verify(token, 'rahasia', (err, decoded) => {
         if (err) res.redirect('/auth/login?error=Token tidak valid atau kadaluarsa')
         req.user = decoded 
         next()
