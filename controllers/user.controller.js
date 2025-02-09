@@ -96,7 +96,7 @@ export const applyJob = async (req, res) => {
             coverLetter
         })
 
-        return res.redirect(`/jobs/apply/${jobId}?success=Berhasil apply job, tunggu pemberitahuan berikutnya`)
+        return res.redirect(`/jobs/apply/${jobId}?success=Berhasil apply job, tunggu gmail dari admin`)
     } catch (err) {
         console.error(err.stack)
         return res.redirect(`/jobs/apply/${jobId}?error=Something went wrong`)
