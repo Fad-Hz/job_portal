@@ -1,165 +1,174 @@
 <style>
-    #contact {
-        background-color: #f8f9fa;
-        /* Light gray background */
-        padding: 60px 30px;
-    }
+    body {
+  font-family: sans-serif;
+  font-size: 16px; /* Ukuran font dasar untuk desktop */
+}
 
-    #contact h2 {
-        margin-bottom: 30px;
-    }
+section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
 
-    #contact .form-group {
-        margin-bottom: 20px;
-    }
+section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    #contact label {
-        font-weight: bold;
-    }
+h2 {
+  font-size: 2rem; /* Ukuran font sedang untuk desktop */
+  margin-bottom: 20px;
+  text-align: center;
+}
 
-    #contact textarea {
-        resize: vertical;
-        /* Allow vertical resizing of textarea */
-    }
+p {
+  font-size: 1rem; /* Ukuran font normal untuk desktop */
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
 
-    /* WhatsApp Button Styles */
-    .whatsapp-button {
-        background-color: #25D366;
-        /* WhatsApp green */
-        color: white;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 5px;
-        font-size: 1.2rem;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        /* Smooth hover transition */
-        display: inline-flex;
-        /* Use flexbox for icon and text alignment */
-        align-items: center;
-        /* Vertically align icon and text */
-        justify-content: center;
-        /* Horizontally center icon and text */
-    }
+.content {
+  padding: 30px 15px;
+}
 
-    .whatsapp-button:hover {
-        background-color: #1DA851;
-        /* Darker WhatsApp green on hover */
-    }
+/* Jumbotron styles */
+.jumbotron {
+  background: #f8f9fa;
+  color: #343a40;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  margin-top: 20px;
+  text-align: center;
+  min-height: 50vh;
+}
 
-    .whatsapp-button i {
-        margin-right: 10px;
-        /* Space between icon and text */
-    }
+.jumbotron h1 {
+  font-size: 2rem; /* Ukuran font besar untuk desktop */
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
 
-    section {
-        opacity: 0;
-        /* Initially hidden */
-        transform: translateY(20px);
-        /* Slightly below its final position */
-        transition: opacity 0.5s ease, transform 0.5s ease;
-        /* Smooth transitions */
-    }
+.jumbotron p {
+  font-size: 1rem; /* Ukuran font sedang untuk desktop */
+  margin-bottom: 2rem;
+  line-height: 1.4;
+}
 
-    section.active {
-        opacity: 1;
-        /* Visible when active */
-        transform: translateY(0);
-        /* In its final position */
-    }
+.btn-lg {
+  font-size: 1rem; /* Ukuran font sedang untuk desktop */
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 8px;
+}
 
-    .jumbotron {
-        background: #f8f9fa;
-        /* Light gray */
-        color: #343a40;
-        padding: 100px 50px;
-        /* Increased padding */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border-radius: 12px;
-        margin-top: 30px;
-        text-align: center;
-        min-height: 80vh;
-        /* Center text within jumbotron */
-    }
+/* Features styles */
+.features i {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #007bff;
+}
 
-    .jumbotron h1 {
-        font-size: 4rem;
-        /* Increased font size */
-        font-weight: bold;
-        margin-bottom: 2rem;
-    }
+.features h4 {
+  font-size: 1.4rem; /* Ukuran font sedang untuk desktop */
+  font-weight: bold;
+  margin-bottom: 5px;
+}
 
-    .jumbotron p {
-        font-size: 1.8rem;
-        /* Increased font size */
-        margin-bottom: 3rem;
-        /* Added margin */
-        line-height: 1.6;
-        /* Improved readability */
-    }
+.features p {
+  font-size: 1rem; /* Ukuran font normal untuk desktop */
+  line-height: 1.4;
+}
 
-    .btn-lg {
-        font-size: 1.4rem;
-        /* Increased font size */
-        padding: 15px 30px;
-        /* Increased padding */
-        margin: 0 10px;
-        /* Adjusted margin */
-        border-radius: 8px;
-        /* Added border-radius */
-    }
+/* Contact styles */
+#contact {
+  background-color: #f8f9fa;
+  padding: 30px 15px;
+}
 
-    .content {
-        padding: 60px 30px;
-        /* Increased padding */
-    }
+#contact h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
 
-    .features i {
-        font-size: 4rem;
-        /* Increased font size */
-        margin-bottom: 20px;
-        color: #007bff;
-    }
+#contact label {
+  font-weight: bold;
+  font-size: 1rem;
+}
 
-    .features h4 {
-        font-size: 2rem;
-        /* Increased font size */
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
+#contact textarea {
+  resize: vertical;
+  font-size: 1rem;
+}
 
-    .features p {
-        font-size: 1.4rem;
-        /* Increased font size */
-        line-height: 1.6;
-        /* Improved readability */
-    }
+.whatsapp-button {
+  background-color: #25D366;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    h2 {
-        font-size: 3rem;
-        /* Increased font size */
-        margin-bottom: 30px;
-        text-align: center;
-        /* Center the heading */
-    }
+.whatsapp-button i {
+  margin-right: 5px;
+}
 
-    p.text-center {
-        font-size: 1.5rem;
-        /* Increased font size */
-        max-width: 900px;
-        /* Increased max-width */
-        margin: 0 auto;
-        line-height: 1.7;
-        /* Improved readability */
-    }
+/* Media query for smaller screens (mobile) */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* Ukuran font dasar lebih kecil untuk mobile */
+  }
 
-    .about-content {
-        text-align: justify;
-        /* Justify text in about section */
-    }
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  p, label, textarea, .features p, .jumbotron p, .whatsapp-button {
+    font-size: 0.9rem;
+  }
+
+  .jumbotron h1 {
+    font-size: 1.6rem;
+  }
+
+  .jumbotron p {
+    font-size: 0.9rem;
+  }
+
+  .btn-lg {
+    font-size: 0.9rem;
+  }
+
+  .features h4 {
+    font-size: 1.2rem;
+  }
+
+  .features i {
+    font-size: 1.6rem;
+  }
+
+  .content {
+    padding: 20px 10px;
+  }
+
+  .jumbotron {
+    padding: 40px 15px;
+  }
+
+  .whatsapp-button {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+}
 </style>
 
 <section id="jumbotron">
@@ -246,7 +255,7 @@
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <form id="contactForm">
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="message">Message:</label>
                         <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
                     </div>
