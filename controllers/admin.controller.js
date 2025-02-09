@@ -114,8 +114,8 @@ export const users = async (req, res) => {
         return {
             ...user.toObject(),
             totalApplied: applications.length,
-            accepted: applications.filter(app => app.status === "interview").length,
-            rejected: applications.filter(app => app.status === "reject").length,
+            accepted: applications.filter(app => app.status === "accepted").length,
+            rejected: applications.filter(app => app.status === "rejected").length,
             applications
         }
     }))
