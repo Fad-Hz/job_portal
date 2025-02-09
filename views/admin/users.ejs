@@ -1,0 +1,104 @@
+<h1>Users Data</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Total Applied</th>
+            <th>Accepted</th>
+            <th>Rejected</th>
+            <th>Applications</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% users.forEach(user=> {
+            if(user.role !== 'admin') { %>
+            <tr>
+                <td>
+                    <%= user.fullName %>
+                </td>
+                <td>
+                    <%= user.email %>
+                </td>
+                <td>
+                    <%= user.phone %>
+                </td>
+                <td>
+                    <%= user.totalApplied %>
+                </td>
+                <td>
+                    <%= user.accepted %>
+                </td>
+                <td>
+                    <%= user.rejected %>
+                </td>
+                <td>
+                    <% if (user.applications && user.applications.length> 0) { %>
+                        <button class="btn btn-sm btn-primary" type="button" data-bs-toggle="modal"
+                            data-bs-target="#applicationsModal-<%= user._id %>">
+                            View Applications
+                        </button>
+
+                        <div class="modal fade" id="applicationsModal-<%= user._id %>" tabindex="-1"
+                            aria-labelledby="applicationsModalLabel-<%= user._id %>" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="applicationsModalLabel-<%= user._id %>">Applications
+                                            for <%= user.fullName %>
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table table-sm">
+                                            <thead>
+                                                <tr>
+                                                    <th>Job Position</th>
+                                                    <th>Company</th>
+                                                    <th>Status</th>
+                                                    <th>Applied At</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% user.applications.forEach(application=> { %>
+                                                    <tr>
+                                                        <td>
+                                                            <%= application.job.position %>
+                                                        </td>
+                                                        <td>
+                                                            <%= application.job.company %>
+                                                        </td>
+                                                        <td>
+                                                            <%= application.status %>
+                                                        </td>
+                                                        <td>
+                                                            <%= application.appliedAt.toDateString() %>
+                                                        </td>
+                                                    </tr>
+                                                    <% }) %>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <% } else { %>
+                            No applications found.
+                            <% } %>
+                </td>
+            </tr>
+            <% } %>
+                <% }) %>
+    </tbody>
+</table>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

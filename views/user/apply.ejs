@@ -1,0 +1,32 @@
+<div style="padding: 30px;">
+    <h2><i class="fa fa-paper-plane"></i> Apply for Job</h2>
+    <% if (error) { %>
+        <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i>
+            <%= error %>
+        </div>
+        <% } %>
+
+            <% if (success) { %>
+                <div class="alert alert-success"><i class="fa fa-check-circle"></i>
+                    <%= success %>
+                </div>
+                <% } %>
+
+                    <form action="/jobs/apply/<%= job._id %>" method="POST" enctype="multipart/form-data" class="mt-3">
+                        <div class="mb-3">
+                            <label for="coverLetter" class="form-label"><i class="fa fa-file-alt"></i> Cover
+                                Letter</label>
+                            <textarea id="coverLetter" name="coverLetter" class="form-control" rows="4"
+                                required></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="resume" class="form-label"><i class="fa fa-file"></i> Upload Resume</label>
+                            <input type="file" id="resume" name="resume" class="form-control" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-success"><i class="fa fa-paper-plane"></i> Submit
+                            Application</button>
+                        <a href="/jobs" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Back to Jobs</a>
+                    </form>
+</div>

@@ -1,0 +1,40 @@
+<h2><i class="fa fa-user-edit"></i> Edit Profile</h2>
+
+<% if (error) { %>
+    <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i>
+        <%= error %>
+    </div>
+    <% } %>
+
+        <% if (success) { %>
+            <div class="alert alert-success"><i class="fa fa-check-circle"></i>
+                <%= success %>
+            </div>
+            <% } %>
+
+                <form action="/auth/edit-profile" method="POST" class="mt-3">
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label"><i class="fa fa-user"></i> Nama Lengkap</label>
+                        <input type="text" id="fullName" name="fullName" class="form-control"
+                            value="<%= user.fullName %>" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label"><i class="fa fa-envelope"></i> Email</label>
+                        <input type="email" id="email" name="email" class="form-control" value="<%= user.email %>"
+                            required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label"><i class="fa fa-lock"></i> Password: </label>
+                        <input type="password" id="password" name="password" class="form-control" value="<%= user.password %>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="phone" class="form-label"><i class="fa fa-phone"></i> Nomor Telepon</label>
+                        <input type="text" id="phone" name="phone" class="form-control" value="<%= user.phone %>">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan Perubahan</button>
+                    <a href="/" class="btn btn-secondary"><i class="fa fa-home"></i> Kembali</a>
+                </form>

@@ -1,0 +1,36 @@
+<div class="container" style="padding: 20px;">
+    <% if (searchQuery) { %>
+        <h3>Search Results for: <%= searchQuery %>
+        </h3>
+    <% } %>
+
+    <div class="row">
+        <% jobs.forEach(job=> { %>
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= job.position %>
+                        </h5>
+                        <h6 class="card-subtitle text-muted"><i class="fa fa-building"></i>
+                            <%= job.company %>
+                        </h6>
+                        <p class="card-text"><i class="fa fa-map-marker-alt"></i>
+                            <%= job.location %>
+                        </p>
+                        <p class="card-text">Work Type: <%= job.workType %>
+                        </p>
+                        <p class="card-text">Work Location: <%= job.workLocation %>
+                        </p>
+                        <p class="card-text">Requirement: <%= job.requirement.length> 10 ? job.requirement.substring(0,
+                                30)
+                                + '...' : job.requirement %></p>
+                        <a href="/jobs/detail/<%= job._id %>" class="btn btn-primary">
+                            <i class="fa fa-eye"></i> View Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+    </div>
+</div>

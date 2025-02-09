@@ -1,0 +1,55 @@
+<div class="container">
+    <h1>Edit Pekerjaan</h1>
+
+    <% if (error) { %>
+        <div class="alert alert-danger">
+            <%= error %>
+        </div>
+        <% } %>
+
+            <form action="/admin/jobs/edit/<%= job._id %>" method="POST">
+                <div class="form-group">
+                    <label for="company">Perusahaan:</label>
+                    <input type="text" class="form-control" id="company" name="company" value="<%= job.company %>">
+                </div>
+
+                <div class="form-group">
+                    <label for="position">Posisi:</label>
+                    <input type="text" class="form-control" id="position" name="position" value="<%= job.position %>">
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Lokasi:</label>
+                    <input type="text" class="form-control" id="location" name="location" value="<%= job.location %>">
+                </div>
+
+                <div class="form-group">
+                    <label for="requirement">Persyaratan:</label>
+                    <textarea class="form-control" id="requirement" name="requirement"
+                        rows="3"><%= job.requirement %></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="workType">Jenis Pekerjaan:</label>
+                    <select class="form-control" id="workType" name="workType">
+                        <option value="full-time" <%=job.workType==='full-time' ? 'selected' : '' %>>Full-Time</option>
+                        <option value="part-time" <%=job.workType==='part-time' ? 'selected' : '' %>>Part-Time</option>
+                        <option value="internship" <%=job.workType==='internship' ? 'selected' : '' %>>Internship
+                        </option>
+                        <option value="contract" <%=job.workType==='contract' ? 'selected' : '' %>>Contract</option>
+                    </select>
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="workLocation">Lokasi Kerja:</label>
+                    <select class="form-control" id="workLocation" name="workLocation">
+                        <option value="in office" <%=job.workLocation==='in office' ? 'selected' : '' %>>In Office
+                        </option>
+                        <option value="remote" <%=job.workLocation==='remote' ? 'selected' : '' %>>Remote</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3"><i class="fas fa-save"></i> Simpan</button>
+                <a href="/admin/jobs" class="btn btn-secondary mt-3"> <i class="fas fa-times"></i> Batal</a>
+            </form>
+</div>

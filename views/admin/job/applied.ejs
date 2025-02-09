@@ -1,0 +1,38 @@
+<div class="container mt-4">
+    <h1 class="mb-3"><%= title %></h1>
+    
+    <% if (error) { %>
+        <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+    
+    <% if (applications.length > 0) { %>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Company</th>
+                    <th>Position</th>
+                    <th>Applicant</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% applications.forEach((app, index) => { %>
+                    <tr>
+                        <td><%= index + 1 %></td>
+                        <td><%= app.job.company %></td>
+                        <td><%= app.job.position %></td>
+                        <td><%= app.user.email %></td>
+                        <td><%= app.status %></td>
+                        <td>
+                            <a href="/admin/jobs/applied/<%= app._id %>" class="btn btn-info btn-sm">View</a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p>No job applications found.</p>
+    <% } %>
+</div>

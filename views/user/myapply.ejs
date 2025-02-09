@@ -1,0 +1,34 @@
+<div style="padding: 35px;">
+    <h2><i class="fa fa-briefcase"></i> My Applications</h2>
+
+    <% if (applications.length===0) { %>
+        <div class="alert alert-info"><i class="fa fa-info-circle"></i> You have not applied for any jobs yet.</div>
+        <% } else { %>
+            <div class="table-responsive">
+                <table class="table table-striped" style="margin-top: 10px; margin-bottom: 10px;">
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% applications.forEach(application=> { %>
+                            <tr>
+                                <td>
+                                    <%= application.job.company %>
+                                </td>
+                                <td>
+                                    <%= application.job.position %>
+                                </td>
+                                <td><span class="badge bg-primary">Pending</span></td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+            <% } %>
+
+                <a href="/jobs" class="btn btn-secondary mt-4"><i class="fa fa-arrow-left"></i> Back to Jobs</a>
+</div>

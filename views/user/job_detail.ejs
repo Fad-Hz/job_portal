@@ -1,0 +1,33 @@
+<div class="container" style="padding: 35px;">
+
+    <h2 style="margin-bottom: 20px;"><i class="fa fa-briefcase"></i> Job Detail</h2>
+    
+<div class="card">
+    <div class="card-body">
+        <h3 class="card-title">
+            <%= job.position %>
+        </h3>
+        <h5 class="card-subtitle text-muted" style="margin-top: 10px; margin-bottom: 10px;"><i class="fa fa-building"></i>
+            <%= job.company %>
+        </h5>
+        <p class="card-text"><i class="fa fa-map-marker-alt"></i>
+            <%= job.location %>
+        </p>
+        <p class="card-text">Work Type: <%= job.workType %>
+        </p>
+        <p class="card-text">Work Location: <%= job.workLocation %>
+        </p>
+        <p class="card-text">Requirement: <%= job.requirement %>
+        </p>
+        <p class="card-text" style="margin-bottom: 20px;"><i class="fa fa-user"></i> Posted by: <%= job.createdBy.email %>
+        </p>
+    </div>
+</div>
+
+<a href="/jobs/apply/<%= job._id %>" class="btn btn-success mt-3">
+    <i class="fa fa-paper-plane"></i> Apply Now
+</a>
+<a href="/jobs" class="btn btn-secondary mt-3">
+    <i class="fa fa-arrow-left"></i> Back to Jobs
+</a>
+</div>

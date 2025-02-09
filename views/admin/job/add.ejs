@@ -1,0 +1,57 @@
+<div class="container">
+    <h1>Tambah Pekerjaan</h1>
+
+    <% if (error) { %>
+        <div class="alert alert-danger">
+            <%= error %>
+        </div>
+        <% } %>
+
+            <form action="/admin/jobs/add" method="POST">
+
+                <div class="form-group">
+                    <label for="company">Perusahaan:</label>
+                    <input type="text" class="form-control" id="company" name="company">
+                </div>
+
+                <div class="form-group">
+                    <label for="position">Posisi:</label>
+                    <input type="text" class="form-control" id="position" name="position" 
+                       >
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Lokasi:</label>
+                    <input type="text" class="form-control" id="location" name="location"
+                       >
+                </div>
+
+                <div class="form-group">
+                    <label for="requirement">Persyaratan:</label>
+                    <textarea class="form-control" id="requirement" name="requirement" rows="3"
+                       ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="workType">Jenis Pekerjaan:</label>
+                    <select class="form-control" id="workType" name="workType">
+                        <option value="full-time" >Full-Time</option>
+                        <option value="part-time">Part-Time</option>
+                        <option value="internship" >Internship</option>
+                        <option value="contract" >Contract</option>
+                    </select>
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="workLocation">Lokasi Kerja:</label>
+                    <select class="form-control" id="workLocation" name="workLocation">
+                        <option value="in office" >In Office</option>
+                        <option value="remote">Remote</option>
+                    </select>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary mt-3"><i class="fas fa-save"></i> Simpan</button>
+                <a href="/admin/jobs" class="btn btn-secondary mt-3"> <i class="fas fa-times"></i> Batal</a>
+            </form>
+</div>

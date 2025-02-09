@@ -1,0 +1,290 @@
+<style>
+    #contact {
+        background-color: #f8f9fa;
+        /* Light gray background */
+        padding: 60px 30px;
+    }
+
+    #contact h2 {
+        margin-bottom: 30px;
+    }
+
+    #contact .form-group {
+        margin-bottom: 20px;
+    }
+
+    #contact label {
+        font-weight: bold;
+    }
+
+    #contact textarea {
+        resize: vertical;
+        /* Allow vertical resizing of textarea */
+    }
+
+    /* WhatsApp Button Styles */
+    .whatsapp-button {
+        background-color: #25D366;
+        /* WhatsApp green */
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        /* Smooth hover transition */
+        display: inline-flex;
+        /* Use flexbox for icon and text alignment */
+        align-items: center;
+        /* Vertically align icon and text */
+        justify-content: center;
+        /* Horizontally center icon and text */
+    }
+
+    .whatsapp-button:hover {
+        background-color: #1DA851;
+        /* Darker WhatsApp green on hover */
+    }
+
+    .whatsapp-button i {
+        margin-right: 10px;
+        /* Space between icon and text */
+    }
+
+    section {
+        opacity: 0;
+        /* Initially hidden */
+        transform: translateY(20px);
+        /* Slightly below its final position */
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        /* Smooth transitions */
+    }
+
+    section.active {
+        opacity: 1;
+        /* Visible when active */
+        transform: translateY(0);
+        /* In its final position */
+    }
+
+    .jumbotron {
+        background: #f8f9fa;
+        /* Light gray */
+        color: #343a40;
+        padding: 100px 50px;
+        /* Increased padding */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        margin-top: 30px;
+        text-align: center;
+        min-height: 80vh;
+        /* Center text within jumbotron */
+    }
+
+    .jumbotron h1 {
+        font-size: 4rem;
+        /* Increased font size */
+        font-weight: bold;
+        margin-bottom: 2rem;
+    }
+
+    .jumbotron p {
+        font-size: 1.8rem;
+        /* Increased font size */
+        margin-bottom: 3rem;
+        /* Added margin */
+        line-height: 1.6;
+        /* Improved readability */
+    }
+
+    .btn-lg {
+        font-size: 1.4rem;
+        /* Increased font size */
+        padding: 15px 30px;
+        /* Increased padding */
+        margin: 0 10px;
+        /* Adjusted margin */
+        border-radius: 8px;
+        /* Added border-radius */
+    }
+
+    .content {
+        padding: 60px 30px;
+        /* Increased padding */
+    }
+
+    .features i {
+        font-size: 4rem;
+        /* Increased font size */
+        margin-bottom: 20px;
+        color: #007bff;
+    }
+
+    .features h4 {
+        font-size: 2rem;
+        /* Increased font size */
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .features p {
+        font-size: 1.4rem;
+        /* Increased font size */
+        line-height: 1.6;
+        /* Improved readability */
+    }
+
+    h2 {
+        font-size: 3rem;
+        /* Increased font size */
+        margin-bottom: 30px;
+        text-align: center;
+        /* Center the heading */
+    }
+
+    p.text-center {
+        font-size: 1.5rem;
+        /* Increased font size */
+        max-width: 900px;
+        /* Increased max-width */
+        margin: 0 auto;
+        line-height: 1.7;
+        /* Improved readability */
+    }
+
+    .about-content {
+        text-align: justify;
+        /* Justify text in about section */
+    }
+</style>
+
+<section id="jumbotron">
+    <div class="jumbotron content">
+        <h1>Welcome <%= user %>!</h1>
+        <p>Explore thousands of job opportunities and apply with ease. Find your dream job with JobsEsc.
+        </p>
+        <div>
+            <a href="/myapply" class="btn btn-dark btn-lg"><i class="fas fa-file-alt"></i> My Apply</a>
+            <a href="/jobs" class="btn btn-dark btn-lg"><i class="fas fa-search"></i> Explore Jobs</a>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="mt-5 content">
+    <h2><i class="fas fa-info-circle"></i> About Us</h2>
+    <div class="about-content">
+        <p class="text-center">JobsEsc was founded with a simple yet powerful mission: to bridge the gap between job
+            seekers and employers, creating a dynamic ecosystem where talent thrives and opportunities abound. We
+            believe that everyone deserves access to fulfilling work, and we are committed to providing the resources
+            and tools necessary to make that a reality. Our platform is built on the principles of innovation,
+            transparency, and user-centric design.</p>
+
+        <p class="text-center">What sets JobsEsc apart is our dedication to providing a comprehensive and personalized
+            experience. Our advanced search algorithms ensure that job seekers are presented with relevant opportunities
+            that match their skills and aspirations, while our employer tools streamline the recruitment process, making
+            it easier to find the perfect candidates. We also offer a wealth of resources, including career advice
+            articles, resume building tips, and interview preparation guides, to empower job seekers at every stage of
+            their journey.</p>
+    </div>
+</section>
+
+<section id="features" class="features mt-5 content">
+    <h2 class="text-center"><i class="fas fa-star"></i> Features</h2>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <i class="fas fa-search"></i>
+            <h4>Easy Job Search</h4>
+            <p>Our powerful search engine allows you to filter jobs by keywords, location, industry, experience level,
+                and more, ensuring you find the perfect match. We also offer advanced search filters to refine your
+                results and discover hidden opportunities.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fas fa-user-tie"></i>
+            <h4>Top Employers</h4>
+            <p>We partner with leading companies across various industries, from Fortune 500 giants to innovative
+                startups, giving you access to a diverse range of job opportunities. Our platform features detailed
+                company profiles, allowing you to learn more about their culture, values, and mission before you apply.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <i class="fas fa-bell"></i>
+            <h4>Job Alerts</h4>
+            <p>Stay ahead of the curve with our real-time job alerts. Receive notifications about new job postings that
+                match your criteria, so you never miss out on a potential opportunity. Customize your alerts to receive
+                only the most relevant notifications.</p>
+        </div>
+    </div>
+    <div class="row text-center mt-4">
+        <div class="col-md-4">
+            <i class="fas fa-briefcase"></i>
+            <h4>Resume Builder</h4>
+            <p>Create a professional resume with our easy-to-use resume builder. Choose from a variety of templates and
+                customize your resume to highlight your skills and experience. Download your resume in various formats.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <i class="fas fa-graduation-cap"></i>
+            <h4>Career Resources</h4>
+            <p>Access a wealth of career resources, including articles, tips, and guides on resume writing, interview
+                skills, networking strategies, and more. We are here to support you throughout your career journey.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fas fa-users"></i>
+            <h4>Community Forum</h4>
+            <p>Connect with other job seekers, share insights, and learn from industry experts in our active community
+                forum. Ask questions, get advice, and build your professional network.</p>
+        </div>
+    </div>
+</section>
+<section id="contact" class="mt-5">
+    <div class="container">
+        <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                    </div>
+
+                    <a href="https://wa.me/6288297758043?text=" class="whatsapp-button" target="_blank"
+                        id="whatsappButton">
+                        <i class="fab fa-whatsapp"></i> Send Message via WhatsApp
+                    </a>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    const sections = document.querySelectorAll('section');
+
+    function animateSections() {
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            const triggerPoint = window.innerHeight * 0.8; // Trigger animation when 80% of section is visible
+
+            if (sectionTop < triggerPoint) {
+                section.classList.add('active');
+            } else {
+                section.classList.remove('active'); // Optional: Reset animation when scrolling up
+            }
+        });
+    }
+
+    window.addEventListener('scroll', animateSections);
+    animateSections(); // Call initially to animate sections already in view
+
+    const whatsappButton = document.getElementById('whatsappButton');
+    const messageInput = document.getElementById('message');
+
+    whatsappButton.addEventListener('click', (event) => {
+        const message = encodeURIComponent(messageInput.value); // Encode message for URL
+        whatsappButton.href = `https://wa.me/6288297758043?text=${message}`; // Construct WhatsApp URL
+    });
+</script>
